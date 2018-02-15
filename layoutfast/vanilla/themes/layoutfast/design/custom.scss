@@ -1,0 +1,275 @@
+/*
+@import "http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800";
+@import "font-awesome-4.0.3/css/font-awesome.min.css";
+@import "styles/bootstrap.min.css";
+@import "styles/style.css";
+*/
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+@import "forum-theme.css";
+
+/* Variables ------------------------------ */
+$color_green: #3dcd58;
+$color_dkgreen: #009530;
+$color_blue: #42b4e6;
+$color_gray: #86949c;
+$color_ltgray: #9fa0a4;
+$color_dkgray: #626469;
+$color_bggray: #eaeaea;
+
+
+html, body {
+	font-family: 'Arial Rounded', 'Helvetica Rounded', 'Varela Round', Arial, sans-serif;
+	background-color: $color_bggray;
+}
+
+.btn-primary, .Button.Primary {
+	background-color: $color_blue;
+	border-color: $color_blue;
+	border-radius: 0px;
+
+	&:hover {
+		background-color: darken($color_blue, 10%);
+		border-color: darken($color_blue, 10%);
+	}
+}
+
+/* Navbar ------------------------------ */
+.navbar {
+	background-color: #fff;
+	border-bottom: solid 2px #ddd;
+	margin-bottom: 0;
+
+	.navbar-brand {
+		padding: 6px;
+		padding-left: 14px;
+	}
+
+	.search-form {
+		padding: 8px;
+		position: relative;
+		width: 50%;
+
+		input[type="text"] {
+			border: none;
+		    box-shadow: none;
+		    background-color: $color_bggray;
+		    color: $color_dkgray;
+		    font-size: 14px;
+		    padding: 8px 19px;
+		    height: 38px;
+		}
+		input[type="submit"] {
+			position: absolute;
+			padding: 8px 12px;
+			top: 8px;
+			right: 0;
+			border: solid 1px $color_dkgray;
+		    box-shadow: none;
+		    background-color: $color_dkgray;
+		    color: #ffffff;
+		}
+	}
+
+	.search-form .Button, .SearchForm .Button { 
+		display: block!important;
+    	visibility: visible!important;
+	}
+}
+
+/* Hero ------------------------------ */
+.hero {
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+/* Discussions ------------------------------ */
+.Discussions {
+	&.row { 
+		margin:0;
+	}
+	.Item, .Item:first-child, .Item:last-child {
+		padding: 0;
+		margin-bottom: 16px;
+		border-radius: 0;
+		width: 100%;
+	}
+	.post {
+		position: relative;
+		padding: 20px;
+		width: 85%;
+	}
+	.post-user {
+		width: 12%;
+	}
+	.post-content {
+		width: 88%;
+	}
+	.post-title {
+		a {
+			color: #000;
+			font-size: 18px;
+			&:hover {
+				color: $color_ltgray;
+			}
+		}
+	}
+	.Item .Options {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+	}
+	.post-body {
+		margin: 8px 0px;
+		color: #999;
+	}
+	.post-meta {
+		padding-left: 1px;
+		width: 15%;
+		border-left: solid 1px $color_bggray;
+	}
+	.post-comment {
+		padding: 20px 30px;
+		border-bottom: solid 1px $color_bggray;
+		&-bg {
+			padding: 6px;
+			background-color: $color_ltgray;
+			border-radius: 3px;
+			text-align: center;
+			color: #fff;
+		}
+		&-mark {
+			margin: auto;
+			margin-top: -5px;
+			width: 10px;
+			height: 10px;
+			background-color: $color_ltgray;
+			transform: rotate(45deg);
+		    -ms-transform: rotate(45deg);
+		    -webkit-transform: rotate(45deg);
+		}
+	}
+	.post-view {
+		padding: 7px;
+		border-bottom: solid 1px $color_bggray;
+		text-align: center;
+	}
+	.post-date {
+		padding: 7px;
+		text-align: center;
+	}
+	.category-tag {
+		padding: 4px 8px;
+		font-size: 10px;
+		background-color: $color_bggray;
+		border-radius: 4px;
+		a {
+			color: $color_dkgray;
+		}
+	}
+	.Tag-Announcement {
+		background-color: $color_blue;
+	}
+}
+
+/* Thread ------------------------------ */
+.MessageList {
+	&.row, & .row { 
+		margin: 0;
+	}
+	.Item {
+		margin-left: 0;
+	}
+	.post {
+		position: relative;
+		padding: 20px;
+		width: 100%;
+	}
+	.post-user {
+		width: 12%;
+		min-height: 60px;
+	}
+	.post-content {
+		width: 88%;
+	}
+	.post-body {
+		font-size: 18px;
+	}
+	.post-meta {
+		margin-top: 10px;
+		padding-top: 10px;
+		border-top: solid 1px $color_bggray;
+		width: 100%;
+		clear: both;
+		font-size: 11px;
+		color: $color_ltgray;
+		a {
+			color: $color_ltgray;
+		}
+	}
+	.Options {
+		position: absolute;
+		right: 0px;
+	}
+	.Comments .Options {
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		padding: 0;
+		margin: 0;
+	}
+	h1, .PageTitle {
+		margin-top: 20px;
+		margin-bottom: 0px;
+		font-size: 28px;
+	}
+}
+
+/* Search ------------------------------ */
+li.Item-Search {
+	padding: 20px !important;
+}
+
+/* Sidebar ------------------------------ */
+.page-sidebar {
+	.FilterMenu {
+		li a {
+			color: $color_dkgray;
+		}
+		
+		.Active a {
+			background-color: $color_gray;
+		}
+	}
+
+	.BoxCategories {
+		margin-top: 20px;
+		padding: 16px;
+		background-color: #fff;
+
+		h4 {
+			margin-top: 0;
+			padding-bottom: 10px;
+			border-bottom: solid 1px $color_bggray;
+		}
+
+		.PanelInfo {
+			margin-bottom: 0;
+
+			li a {
+				padding: 4px;
+				border: none;
+			}
+		}
+		.PanelInfo .Active a {
+			background-color: $color_bggray;
+			color: $color_dkgray;
+			border-radius: 4px;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.search-form {
+		width: 100%;
+	}
+}
