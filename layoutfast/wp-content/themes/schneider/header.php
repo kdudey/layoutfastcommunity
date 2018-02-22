@@ -24,30 +24,58 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'schneider' ); ?></a>
     <?php if(!is_page_template( 'blank-page.php' ) && !is_page_template( 'blank-page-with-container.php' )): ?>
 	<header id="masthead" class="site-header fixed-top" role="banner">
+        <div class="topbar">
+            <ul>
+                <li><a href="#"><img src="http://ec2-54-201-157-102.us-west-2.compute.amazonaws.com/layoutfast/wp-content/themes/schneider/assets/flag-usa.png" alt="Language" style="padding-right:8px;"></a></li>
+                <li><a href="#"><img src="http://ec2-54-201-157-102.us-west-2.compute.amazonaws.com/layoutfast/wp-content/themes/schneider/assets/nav-datasheet.png" onMouseOver="this.src='http://ec2-54-201-157-102.us-west-2.compute.amazonaws.com/layoutfast/wp-content/themes/schneider/assets/nav-datasheet-hover.png'" onMouseOut="this.src='http://ec2-54-201-157-102.us-west-2.compute.amazonaws.com/layoutfast/wp-content/themes/schneider/assets/nav-datasheet.png'" alt="Datasheet"></a></li>
+                <li><a href="#"><img src="http://ec2-54-201-157-102.us-west-2.compute.amazonaws.com/layoutfast/wp-content/themes/schneider/assets/nav-layoutfast.png" onMouseOver="this.src='http://ec2-54-201-157-102.us-west-2.compute.amazonaws.com/layoutfast/wp-content/themes/schneider/assets/nav-layoutfast-hover.png'" onMouseOut="this.src='http://ec2-54-201-157-102.us-west-2.compute.amazonaws.com/layoutfast/wp-content/themes/schneider/assets/nav-layoutfast.png'" alt="layoutFAST"></a></li>
+                <li><a href="#"><img src="http://ec2-54-201-157-102.us-west-2.compute.amazonaws.com/layoutfast/wp-content/themes/schneider/assets/nav-engineering.png" onMouseOver="this.src='http://ec2-54-201-157-102.us-west-2.compute.amazonaws.com/layoutfast/wp-content/themes/schneider/assets/nav-engineering-hover.png'" onMouseOut="this.src='http://ec2-54-201-157-102.us-west-2.compute.amazonaws.com/layoutfast/wp-content/themes/schneider/assets/nav-engineering.png'" alt="Engineering"></a></li>
+                <li><a href="#"><img src="http://ec2-54-201-157-102.us-west-2.compute.amazonaws.com/layoutfast/wp-content/themes/schneider/assets/nav-community.png" onMouseOver="this.src='http://ec2-54-201-157-102.us-west-2.compute.amazonaws.com/layoutfast/wp-content/themes/schneider/assets/nav-community-hover.png'" onMouseOut="this.src='http://ec2-54-201-157-102.us-west-2.compute.amazonaws.com/layoutfast/wp-content/themes/schneider/assets/nav-community.png'" alt="Community"></a></li>
+                <li><a href="#"><img src="http://ec2-54-201-157-102.us-west-2.compute.amazonaws.com/layoutfast/wp-content/themes/schneider/assets/nav-mylinks.png" onMouseOver="this.src='http://ec2-54-201-157-102.us-west-2.compute.amazonaws.com/layoutfast/wp-content/themes/schneider/assets/nav-mylinks-hover.png'" onMouseOut="this.src='http://ec2-54-201-157-102.us-west-2.compute.amazonaws.com/layoutfast/wp-content/themes/schneider/assets/nav-mylinks.png'" alt="My Links"></a></li>
+                <li><a href="#"><img src="http://ec2-54-201-157-102.us-west-2.compute.amazonaws.com/layoutfast/wp-content/themes/schneider/assets/nav-avatar.png" alt="User Profile" style="padding-left:8px;"> Register/Login</a></li>
+                <li><a href="#"><img src="http://ec2-54-201-157-102.us-west-2.compute.amazonaws.com/layoutfast/wp-content/themes/schneider/assets/icon-settings.png" alt="Settings"></a></li>
+            </ul>
+        </div>
+
         <nav class="navbar justify-content-between navbar-dark p-0">
             <a class="site-title navbar-brand" href="<?php echo esc_url( home_url( '/' )); ?>">
                 <img src="http://ec2-54-201-157-102.us-west-2.compute.amazonaws.com/layoutfast/wp-content/themes/schneider/assets/layoutfast.png" width="41" height="42" class="d-inline-block align-top" alt="">
                 <span class="seThick">layout</span><span class="seThin">FAST</span>
             </a>
 
-            <?php /* commented out in case we want this later, removed for hard-coded SE header above
-                if ( get_theme_mod( 'schneider_logo' ) ): ?>
-                <a href="<?php echo esc_url( home_url( '/' )); ?>">
-                    <img src="<?php echo esc_attr(get_theme_mod( 'schneider_logo' )); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
-                </a>
-            <?php else : ?>
-                <a class="site-title" href="<?php echo esc_url( home_url( '/' )); ?>">
-                    <img src="/community/wordpress/wp-content/themes/schneider/assets/layoutfast.png" width="41" height="42" class="d-inline-block align-top" alt="">
-                    <?php //esc_url(bloginfo('name')); ?>
-                </a>
-            <?php endif; */ ?>
-            <ul class="navbar-nav" style="flex-direction:row;">
-                <li class="nav-item"><a href="#" class="nav-link"><img src="http://layoutfastweb-env.jyzcfuubg7.us-west-2.elasticbeanstalk.com//images/button-icons-mult-ui-states/DataSheet_enabled.png" width="44" height="44"></a></li>
-                <li class="nav-item"><a href="#" class="nav-link"><img src="http://layoutfastweb-env.jyzcfuubg7.us-west-2.elasticbeanstalk.com//images/button-icons-mult-ui-states/MyLinks_enabled.png" width="44" height="44"></a></li>
-                <li class="nav-item"><a href="#" class="nav-link"><img src="http://layoutfastweb-env.jyzcfuubg7.us-west-2.elasticbeanstalk.com//images/User-yellow-icon.png" width="42" height="42" style="background-color:#000;border:solid 1px #fff;"></a></li>
-                <li class="nav-item" style="padding-top:5px;"><a href="#" class="userlink">Username</a><br><a href="#" class="helplink">Get Help</a></li>
-                <li class="nav-item"><a href="#" class="nav-link"><img src="http://layoutfastweb-env.jyzcfuubg7.us-west-2.elasticbeanstalk.com//images/settings_white.png" width="44" height="44"></a></li>
-            </ul>
+            <div>
+                <?php
+                    wp_nav_menu(array(
+                    'theme_location'    => 'primary',
+                    'container'       => '',
+                    'container_id'    => '',
+                    'container_class' => '',
+                    'menu'            => 'a',
+                    'menu_id'         => false,
+                    'menu_class'      => 'nav nav-pills primary-nav',
+                    'depth'           => 3,
+                    'fallback_cb'     => 'wp_bootstrap_navwalker::fallback',
+                    'walker'          => new wp_bootstrap_navwalker()
+                    ));
+                ?>
+            </div>
+            <div class="navbar-nav" style="flex-direction:row;">
+                <img src="http://ec2-54-201-157-102.us-west-2.compute.amazonaws.com/layoutfast/wp-content/themes/schneider/assets/brand-lifeison.png">
+                <a href="#" onclick="showNavSearch();"><img src="http://ec2-54-201-157-102.us-west-2.compute.amazonaws.com/layoutfast/wp-content/themes/schneider/assets/icon-search.png" style="margin:17px 20px;width:30px;height:30px;"></a>
+                
+                <form id="navSearch-form">
+                <div id="navSearch">
+                    <div class="input-group" role="group">
+                        <input type="text" id="navsearch-text" placeholder="Search for Part Number">
+                        <div class="input-group-append">
+                            <button type="reset"><img src="http://ec2-54-201-157-102.us-west-2.compute.amazonaws.com/layoutfast/wp-content/themes/schneider/assets/icon-cancel.png"></button>
+                        </div>
+                    </div>
+                    <a href="#" class="navsearch-close" alt="Close" onclick="hideNavSearch();">X</a>
+                </div>
+                </form>
+
+            </div>
         </nav>
 	</header><!-- #masthead -->
     <?php// if(is_front_page() && !get_theme_mod( 'header_banner_visibility' )): ?>
@@ -86,13 +114,13 @@
                 <div class="col-md-12">
                     <?php
                     wp_nav_menu(array(
-                    'theme_location'    => 'primary',
+                    'theme_location'    => 'secondary',
                     'container'       => '',
                     'container_id'    => '',
                     'container_class' => '',
                     'menu'            => 'a',
                     'menu_id'         => false,
-                    'menu_class'      => 'nav nav-pills primary-nav',
+                    'menu_class'      => 'nav nav-pills secondary-nav',
                     'depth'           => 3,
                     'fallback_cb'     => 'wp_bootstrap_navwalker::fallback',
                     'walker'          => new wp_bootstrap_navwalker()

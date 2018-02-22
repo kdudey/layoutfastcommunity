@@ -42,6 +42,7 @@ function schneider_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary', 'schneider' ),
+		'secondary' => esc_html__( 'Secondary', 'schneider' ),
 	) );
 
 	/*
@@ -219,3 +220,9 @@ function fb_move_admin_bar() {
 add_action( 'admin_head', 'fb_move_admin_bar' );
 // on frontend area
 add_action( 'wp_head', 'fb_move_admin_bar' );
+
+
+function footer_js() {
+	wp_enqueue_script('schneider-utils', get_template_directory_uri() . '/assets/utils.js', array() );
+}
+add_action('wp_footer', 'footer_js');
