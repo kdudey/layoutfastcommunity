@@ -15,40 +15,28 @@ if ( ! function_exists( 'schneider_setup' ) ) :
  * as indicating support for post thumbnails.
  */
 function schneider_setup() {
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed in the /languages/ directory.
-	 */
+	//Make theme available for translation. Translations can be filed in the /languages/ directory.
 	load_theme_textdomain( 'schneider', get_template_directory() . '/languages' );
 
-	// Add default posts and comments RSS feed links to head.
+	//Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 
-	/*
-	 * Let WordPress manage the document title.
-	 * By adding theme support, we declare that this theme does not use a
-	 * hard-coded <title> tag in the document head, and expect WordPress to
-	 * provide it for us.
-	 */
+	//Page <title> is managed by WP
 	add_theme_support( 'title-tag' );
 
-	/*
-	 * Enable support for Post Thumbnails on posts and pages.
-	 *
-	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-	 */
+	/** 
+	* Enable support for Post Thumbnails on posts and pages.
+	* @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/'
+	*/
 	add_theme_support( 'post-thumbnails' );
 
-	// This theme uses wp_nav_menu() in one location.
+	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary', 'schneider' ),
 		'secondary' => esc_html__( 'Secondary', 'schneider' ),
 	) );
 
-	/*
-	 * Switch default core markup for search form, comment form, and comments
-	 * to output valid HTML5.
-	 */
+	//Switch default core markup for search form, comment form, and comments to output valid HTML5.
 	add_theme_support( 'html5', array(
 		'comment-form',
 		'comment-list',
@@ -65,6 +53,7 @@ function schneider_setup() {
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
 
+	// Custom editor styles in WP Admin
     function schneider_add_editor_styles() {
         add_editor_style( 'custom-editor-style.css' );
     }
@@ -74,11 +63,30 @@ function schneider_setup() {
 endif;
 add_action( 'after_setup_theme', 'schneider_setup' );
 
+
+//Enqueue scripts and styles.
+function schneider_scripts() {
+	wp_enqueue_style('bs4', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
+	wp_enqueue_style('fa', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+	wp_enqueue_style('schneider-style', get_stylesheet_uri() );
+
+	wp_enqueue_script('jquery');
+    // Internet Explorer HTML5 support
+    wp_enqueue_script('html5shiv', 'https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js');
+    wp_script_add_data('html5shiv', 'conditional', 'lt IE 9' );
+
+    wp_enqueue_script('popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js');
+	wp_enqueue_script('bs4', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js');
+
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+		wp_enqueue_script( 'comment-reply' );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'schneider_scripts' );
+
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
- *
  * Priority 0 to make it available to lower priority callbacks.
- *
  * @global int $content_width
  */
 function schneider_content_width() {
@@ -87,10 +95,9 @@ function schneider_content_width() {
 add_action( 'after_setup_theme', 'schneider_content_width', 0 );
 
 /**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
+* Register Widget Areas
+* @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+*/
 function schneider_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'schneider' ),
@@ -114,38 +121,6 @@ function schneider_widgets_init() {
 add_action( 'widgets_init', 'schneider_widgets_init' );
 
 
-
-/**
- * Enqueue scripts and styles.
- */
-function schneider_scripts() {
-	// load bootstrap css
-	wp_enqueue_style( 'schneider-bootstrap-css', get_template_directory_uri() . '/inc/assets/css/bootstrap.min.css' );
-	// load bootstrap css
-	wp_enqueue_style( 'schneider-font-awesome', get_template_directory_uri() . '/inc/assets/css/font-awesome.min.css', false, '4.1.0' );
-	// load AItheme styles
-	// load Schneider styles
-	wp_enqueue_style( 'schneider-style', get_stylesheet_uri() );
-
-	wp_enqueue_script('jquery');
-
-    // Internet Explorer HTML5 support
-    wp_enqueue_script( 'html5hiv',get_template_directory_uri().'/inc/assets/js/html5.js', array(), '3.7.0', false );
-    wp_script_add_data( 'html5hiv', 'conditional', 'lt IE 9' );
-
-	// load bootstrap js
-    wp_enqueue_script('schneider-popper', get_template_directory_uri() . '/inc/assets/js/popper.min.js', array() );
-	wp_enqueue_script('schneider-bootstrapjs', get_template_directory_uri() . '/inc/assets/js/bootstrap.min.js', array() );
-    wp_enqueue_script('schneider-themejs', get_template_directory_uri() . '/inc/assets/js/theme-script.js', array() );
-	wp_enqueue_script( 'schneider-skip-link-focus-fix', get_template_directory_uri() . '/inc/assets/js/skip-link-focus-fix.js', array(), '20151215', true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'schneider_scripts' );
-
-
 function schneider_password_form() {
     global $post;
     $label = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );
@@ -158,42 +133,31 @@ function schneider_password_form() {
 add_filter( 'the_password_form', 'schneider_password_form' );
 
 
+//Implement Custom Header
+require get_template_directory() . '/assets/custom-header.php';
 
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
+//Implement Custom Template Tags
+require get_template_directory() . '/assets/template-tags.php';
 
-/**
- * Custom template tags for this theme.
- */
-require get_template_directory() . '/inc/template-tags.php';
+//Custom functions that act independently of the theme templates.
+require get_template_directory() . '/assets/extras.php';
 
-/**
- * Custom functions that act independently of the theme templates.
- */
-require get_template_directory() . '/inc/extras.php';
+//Customizer additions.
+require get_template_directory() . '/assets/customizer.php';
 
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
+//Load plugin compatibility file.
+require get_template_directory() . '/assets/plugin-compatibility/plugin-compatibility.php';
 
-/**
- * Load plugin compatibility file.
- */
-require get_template_directory() . '/inc/plugin-compatibility/plugin-compatibility.php';
-
-/**
- * Load custom WordPress nav walker.
- */
+//Load custom WordPress nav walker.
 if ( ! class_exists( 'wp_bootstrap_navwalker' )) {
-    require_once(get_template_directory() . '/inc/wp_bootstrap_navwalker.php');
+    require_once(get_template_directory() . '/assets/wp_bootstrap_navwalker.php');
 }
 
+//Enable Shortcodes for widgets
 add_filter( 'widget_text', 'shortcode_unautop' );
 add_filter( 'widget_text', 'do_shortcode' );
 
+//Put WP Admin bar at the bottom of page
 function fb_move_admin_bar() {
     echo '
     <style type="text/css">
@@ -221,8 +185,8 @@ add_action( 'admin_head', 'fb_move_admin_bar' );
 // on frontend area
 add_action( 'wp_head', 'fb_move_admin_bar' );
 
-
+//Load JS scripts in footer
 function footer_js() {
-	wp_enqueue_script('schneider-utils', get_template_directory_uri() . '/assets/utils.js', array() );
+	wp_enqueue_script('schneider-utils', get_template_directory_uri() . '/assets/scripts/utils.js', array() );
 }
 add_action('wp_footer', 'footer_js');

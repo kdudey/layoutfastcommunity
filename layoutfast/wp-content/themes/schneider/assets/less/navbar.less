@@ -1,0 +1,118 @@
+.navbar {
+  position: relative;
+  padding: 0px 10px;
+  background-color: rgba(61,205,88,0.5);
+  border-bottom: solid 4px #009530;
+
+  .navbar-brand {
+    height: auto;
+    font-size: 30px;
+    font-weight: 300;
+    color: #fff;
+  }
+
+  .navbar-nav {
+    position: relative;
+    width: 370px;
+    height: 64px;
+
+    .nav-pills {
+    border-radius: 0;
+
+      & > .nav-item {
+        margin-top: 10px;
+        margin-right: 20px;
+
+        &.show .dropdown-toggle {
+          background-color: transparent;
+          border-bottom: solid 4px @color_yellow;
+        }
+      }
+
+      .nav-link {
+        margin-right: 20px;
+        padding-top: 8px;
+        padding-bottom: 19px;
+        color: #fff;
+        font-size: 18px;
+        border-radius: 0;
+        border-bottom: solid 4px transparent;
+
+        &.active {
+            border-bottom: solid 4px @color_blue;
+        }
+
+        &:hover {
+          border-bottom: solid 4px @color_yellow;
+        }
+      }
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      margin-top: -1px;
+      padding: 10px 14px 16px 14px;
+      border-radius: 0;
+
+      .nav-item {
+        margin: 0;
+      }
+
+      .dropdown-item {
+        padding: 0;
+        padding-top: 6px;
+        font-size: 14px;
+        border-bottom: solid 4px transparent;
+
+        &:hover {
+          background-color: transparent;
+          border-bottom: solid 4px @color_green;
+        }
+      }
+    }
+  }
+
+  .navbar-right {
+    flex-direction: row;
+
+      #navSearch {
+      position: absolute;
+      display: flex;
+      visibility: hidden;
+      bottom: -62px;
+      right: 10px;
+
+      .input-group {
+        border: solid 1px #ccc;
+      }
+
+      button, input[type="text"] {
+        padding: 10px;
+        font-size: 14px;
+        border: none;
+        background-color: #fff;
+        outline: 0;
+      }
+
+      button img {
+        width: 30px;
+      }
+
+      input[type="text"] {
+        width: 300px;
+
+        &::placeholder {
+          color: #ccc;
+          font-style: italic;
+        }
+      }
+
+      a.navsearch-close {
+        padding: 6px 10px;
+        color: #fff;
+        font-size: 26px;
+        text-decoration: none;
+      }
+    }
+  }
+}
