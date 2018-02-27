@@ -35,3 +35,6 @@ layoutfast/vanilla/environment.php
 layoutfast/vanilla/index.php
 layoutfast/vanilla/LICENSE.md
 layoutfast/vanilla/README.md
+
+*.codekit3
+*/.htaccess
