@@ -21,8 +21,8 @@ function schneider_custom_subheader() {
 	add_theme_support('custom-header', apply_filters('schneider_custom_subheader_args', array(
 		'default-image'          => '',
 		'default-text-color'     => '000000',
-		'width'                  => 2600,
-		'height'                 => 600,
+		'width'                  => 2400,
+		'height'                 => 560,
 		'flex-height'            => true,
 		'wp-head-callback'       => 'schneider_header_style',
 	) ) );

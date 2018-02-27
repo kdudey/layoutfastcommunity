@@ -7,11 +7,11 @@
  * @package schneider
  */
 
-if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+if ( ! is_active_sidebar( 'sidebar' ) ) {
 	return;
 }
 ?>
 
-<aside id="secondary" class="widget-area col-sm-12 col-md-12 col-lg-4" role="complementary">
-	<?php dynamic_sidebar( 'sidebar-1' ); ?>
+<aside id="page-sidebar" class="widget-area" role="complementary">
+	<?php dynamic_sidebar( 'sidebar' ); ?>
 </aside><!-- #secondary -->
