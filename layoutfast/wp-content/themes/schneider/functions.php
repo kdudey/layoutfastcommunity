@@ -101,22 +101,13 @@ add_action( 'after_setup_theme', 'schneider_content_width', 0 );
 function schneider_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'schneider' ),
-		'id'            => 'sidebar-1',
+		'id'            => 'sidebar',
 		'description'   => esc_html__( 'Add widgets here.', 'schneider' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h3 class="widget-title">',
 		'after_title'   => '</h3>',
 	) );
-    register_sidebar( array(
-        'name'          => esc_html__( 'Footer 1', 'schneider' ),
-        'id'            => 'footer-1',
-        'description'   => esc_html__( 'Add widgets here.', 'schneider' ),
-        'before_widget' => '<section id="%1$s" class="widget %2$s">',
-        'after_widget'  => '</section>',
-        'before_title'  => '<h3 class="widget-title">',
-        'after_title'   => '</h3>',
-    ) );
 }
 add_action( 'widgets_init', 'schneider_widgets_init' );
 
@@ -190,3 +181,13 @@ function footer_js() {
 	wp_enqueue_script('schneider-utils', get_template_directory_uri() . '/assets/scripts/utils.js', array() );
 }
 add_action('wp_footer', 'footer_js');
+
+
+function add_active_nav_class($classes, $item) {
+    if (in_array('current-page-ancestor', $classes) || in_array('current-menu-item', $classes) ){
+        $classes[] = 'active ';
+    }
+    return $classes;
+}
+add_filter('nav_menu_css_class' , 'add_active_nav_class' , 10 , 2);
+

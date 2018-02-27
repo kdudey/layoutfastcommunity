@@ -17,7 +17,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-    <div id="page">
+<div id="page">
 	<header id="page-header" class="fixed-top" role="banner">
         <div class="topbar">
             <ul>
@@ -72,4 +72,44 @@
         </nav>
 	</header><!-- #page-header -->
 
-
+    <?php //if(!is_page_template('page-nosubhead.php')): ?>
+    <div id="page-subheader">
+        <div class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-slide-to="0" class="active"></li>
+                <li data-slide-to="1"></li>
+                <li data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div id="carousel-slide-1" class="carousel-slide"></div>
+                </div>
+                <div class="carousel-item">
+                    <div id="carousel-slide-2" class="carousel-slide">
+                        <div class="messageblock">
+                            <h2>layoutFAST Plugin</h2>
+                            <p>A Revit MEP Plugin to access thousands of Schneider Electric product modes from the cloud, on the fly.</p>
+                            <a href="http://www.bim-schneider-electric.com/layoutfastdownload/Schneider.LayoutFAST.Setup_x64.msi" class="btn btn-primary" target="_blank">Download now for free</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div id="carousel-slide-3" class="carousel-slide">
+                        <div class="messageblock">
+                            <h2>Social Media</h2>
+                            <p>Want to know what is happening at Schneider Electric right now? Find us on Facebook, follow us on Twitter and network with us on LinkedIn.</p>
+                            <div class="buttons">
+                                <a href="#" class="btn btn-primary">LinkedIn</a>
+                                <a href="#" class="btn btn-primary">Twitter</a>
+                                <a href="#" class="btn btn-primary">Facebook</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-scroller">
+                <a href="#content-anchor"><i class="fa fa-fw fa-angle-down"></i></a>
+            </div>
+        </div>
+    </div>
+    <?php //endif; ?>

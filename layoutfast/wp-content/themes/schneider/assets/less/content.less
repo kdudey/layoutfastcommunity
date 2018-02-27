@@ -10,46 +10,83 @@
 
 #page-subheader {
   position: relative;
-  padding-top: 10rem;
-  padding-bottom: 1rem;
+  margin-top: 25px;
   text-align: center;
   color: #fff;
-  background-size: cover !important;
 
-  h1 {
-    padding: 0;
-    margin: 0;
-    margin-bottom: 1rem;
-    line-height: 1;
-    color: #fff;
-    font-size: 4rem;
+  .page-scroller {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 30px;
+
+    a {
+      text-decoration: none;
+      font-size: 2.6rem;
+      color: #fff;
+    }
   }
 
-  p {
-    margin-bottom: 0;
-    line-height: 1.4;
-    font-size: 1.25rem;
+  .carousel-indicators {
+    bottom: 10px;
+
+    .active {
+      background-color: @color_green;
+    }
   }
 
-  a.page-scroller {
-    display: inline-block;
-    font-size: 2.6rem;
-    color: #fff;
-  }
+  .carousel-slide {
+    position: relative;
+    height: 390px;
+    background-size: cover;
 
-  .buttons {
-    padding-top: 30px;
+    .messageblock {
+      position: absolute;
+      top: 140px;
+      right: 45px;
+      margin: 0;
+      padding: 20px;
+      width: 450px;
+      background-color: rgba(0,0,0,0.5);
 
-    .btn {
-      margin-right: 30px;
-      border: none;
-      border-radius: 0;
-
-      &.btn-primary {
+      h2 {
+        margin: 0;
+        margin-bottom: 10px;
+        text-align: left;
         color: #fff;
-        background-color: @color_blue;
+      }
+
+      p {
+        margin: 0;
+        margin-bottom: 20px;
+        text-align: left;
+        color: #fff;
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+      button {
+        text-align: center;
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
     }
+  }
+
+  #carousel-slide-1 {
+    background-image: url("/layoutfast/wp-content/themes/schneider/assets/images/hero-buildings.jpg");
+  }
+
+  #carousel-slide-2 {
+    background-image: url("/layoutfast/wp-content/themes/schneider/assets/images/hero-man.jpg");
+  }
+
+  #carousel-slide-3 {
+    background-image: url("/layoutfast/wp-content/themes/schneider/assets/images/hero-construction.jpg");
   }
 }
 
