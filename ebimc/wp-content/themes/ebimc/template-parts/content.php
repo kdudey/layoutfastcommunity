@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package ebimc
+ * @package schneider
  */
 
 ?>
@@ -23,7 +23,7 @@
 
 		if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php ebimc_posted_on(); ?>
+			<?php schneider_posted_on(); ?>
 		</div><!-- .entry-meta -->
 		<?php
 		endif; ?>
@@ -33,17 +33,17 @@
         if ( is_single() ) :
 			the_content();
         else :
-            the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'ebimc' ) );
+            the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'schneider' ) );
         endif;
 
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'ebimc' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'schneider' ),
 				'after'  => '</div>',
 			) );
 		?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php ebimc_entry_footer(); ?>
+		<?php schneider_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

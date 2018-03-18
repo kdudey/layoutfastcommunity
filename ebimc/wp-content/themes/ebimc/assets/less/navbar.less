@@ -1,0 +1,143 @@
+.navbar {
+  position: relative;
+  padding: 0px 10px;
+  background-color: rgba(253,191,45,0.7);
+  border-bottom: solid 4px @color_orange;
+  transition: background-color 0.5s ease;
+
+  &:hover, &.navbar-opaque {
+    background-color: rgba(253,191,45,1);
+  }
+
+  .navbar-brand {
+    height: auto;
+    font-size: 35px;
+    font-weight: 300;
+    color: #000;
+    letter-spacing: 1px;
+  }
+
+  .navbar-nav {
+    position: relative;
+    width: 730px;
+    height: 64px;
+
+    .nav-pills {
+    border-radius: 0;
+
+      & > .nav-item {
+        margin-top: 10px;
+        margin-right: 20px;
+
+        &.active .nav-link {
+            border-bottom: solid 4px @color_blue;
+        }
+
+        &:hover .nav-link {
+          border-bottom: solid 4px @color_blue;
+        }
+
+        .dropdown-toggle::after, .dropdown-toggle .caret {
+          display: none;
+        }
+      }
+
+      .nav-link {
+        margin-right: 20px;
+        padding-top: 8px;
+        padding-bottom: 16px;
+        color: #000;
+        font-size: 20px;
+        border-radius: 0;
+        border-bottom: solid 4px transparent;
+
+      }
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      margin-top: -1px;
+      padding: 10px 14px 16px 14px;
+      border-radius: 0;
+
+      .dropdown-menu {
+        position: relative;
+        display: block;
+        padding: 0;
+        padding-left: 30px;
+        border: none;
+        list-style: disc;
+
+        a {
+          font-weight: normal;
+        }
+      }
+
+      .nav-item {
+        margin: 0;
+        padding: 2px 0;
+      }
+
+      .dropdown-item {
+        display: inline;
+        padding: 0;
+        font-size: 14px;
+      }
+
+      li {
+        padding: 0;
+      }
+
+      a {
+        color: @color_blue;
+        text-decoration: underline;
+        font-weight: bold;
+        background-color: transparent;
+      }
+    }
+  }
+
+  .navbar-right {
+    flex-direction: row;
+
+      #navSearch {
+      position: absolute;
+      display: flex;
+      visibility: hidden;
+      bottom: -62px;
+      right: 10px;
+
+      .input-group {
+        border: solid 1px #ccc;
+      }
+
+      button, input[type="text"] {
+        padding: 10px;
+        font-size: 14px;
+        border: none;
+        background-color: #fff;
+        outline: 0;
+      }
+
+      button img {
+        width: 30px;
+      }
+
+      input[type="text"] {
+        width: 300px;
+
+        &::placeholder {
+          color: #ccc;
+          font-style: italic;
+        }
+      }
+
+      a.navsearch-close {
+        padding: 6px 10px;
+        color: #fff;
+        font-size: 26px;
+        text-decoration: none;
+      }
+    }
+  }
+}

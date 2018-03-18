@@ -13,6 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+    <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
     <?php wp_head(); ?>
 </head>
 
@@ -34,7 +35,7 @@
 
         <nav class="navbar justify-content-between">
             <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' )); ?>">
-                <img src="/layoutfast/wp-content/themes/schneider/assets/images/layoutfast.png" width="41" height="42" class="d-inline-block align-top" alt="">
+                <img src="/layoutfast/wp-content/themes/schneider/assets/images/layoutfast.png" width="48" height="48" class="d-inline-block align-top" alt="">
                 <strong>layout</strong>FAST
             </a>
 
@@ -74,11 +75,11 @@
 
     <?php //if(!is_page_template('page-nosubhead.php')): ?>
     <div id="page-subheader">
-        <div class="carousel slide" data-ride="carousel">
+        <div class="carousel slide" data-ride="carousel" id="subheader-carousel">
             <ol class="carousel-indicators">
-                <li data-slide-to="0" class="active"></li>
-                <li data-slide-to="1"></li>
-                <li data-slide-to="2"></li>
+                <li data-target="#subheader-carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#subheader-carousel" data-slide-to="1"></li>
+                <li data-target="#subheader-carousel" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -87,8 +88,8 @@
                 <div class="carousel-item">
                     <div id="carousel-slide-2" class="carousel-slide">
                         <div class="messageblock">
-                            <h2>layoutFAST Plugin</h2>
-                            <p>A Revit MEP Plugin to access thousands of Schneider Electric product modes from the cloud, on the fly.</p>
+                            <h2>layout<span class="thin">FAST</span> Plugin</h2>
+                            <p>A Revit MEP Plugin to access thousands of Schneider Electric product models from the cloud, on the fly.</p>
                             <a href="http://www.bim-schneider-electric.com/layoutfastdownload/Schneider.LayoutFAST.Setup_x64.msi" class="btn btn-primary" target="_blank">Download now for free</a>
                         </div>
                     </div>

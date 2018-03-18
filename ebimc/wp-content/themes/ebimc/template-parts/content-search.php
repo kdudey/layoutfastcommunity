@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package ebimc
+ * @package schneider
  */
 
 ?>
@@ -15,7 +15,7 @@
 
 		<?php if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php ebimc_posted_on(); ?>
+			<?php schneider_posted_on(); ?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
@@ -25,6 +25,6 @@
 	</div><!-- .entry-summary -->
 
 	<footer class="entry-footer">
-		<?php ebimc_entry_footer(); ?>
+		<?php schneider_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

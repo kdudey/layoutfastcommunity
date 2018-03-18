@@ -4,14 +4,13 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package ebimc
+ * @package schneider
  */
 
 get_header(); ?>
 
 	<section id="primary" class="content-area col-sm-12 col-md-12 col-lg-8">
 		<main id="main" class="site-main" role="main">
-
 		<?php
 		if ( have_posts() ) : ?>
 

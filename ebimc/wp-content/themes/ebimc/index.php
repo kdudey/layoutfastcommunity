@@ -9,48 +9,51 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package ebimc
+ * @package schneider
  */
 
-get_header(); ?>
+get_header(); 
+?>
 
-	<section id="primary" class="content-area col-sm-12 col-md-12 col-lg-8">
-		<main id="main" class="site-main" role="main">
+    <a id="content-anchor"></a>
+    <div id="page-content" class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="secondary-menu">
+                    <?php
+                    wp_nav_menu(array(
+                    'theme_location'    => 'secondary',
+                    'menu'            => 'a',
+                    'menu_id'         => false,
+                    'menu_class'      => 'nav nav-pills',
+                    'depth'           => 3,
+                    'fallback_cb'     => 'wp_bootstrap_navwalker::fallback',
+                    'walker'          => new wp_bootstrap_navwalker()
+                    ));
+                    ?>
+                </div>
 
-		<?php
-		if ( have_posts() ) :
+                <div class="content">
+                    <?php
+                    while ( have_posts() ) : the_post();
 
-			if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
+                        get_template_part( 'template-parts/content', 'page' );
 
-			<?php
-			endif;
+                        // If comments are open or we have at least one comment, load up the comment template.
+                        if ( comments_open() || get_comments_number() ) :
+                            comments_template();
+                        endif;
 
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
-
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_format() );
-
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif; ?>
-
-		</main><!-- #main -->
-	</section><!-- #primary -->
+                    endwhile; // End of the loop.
+                    ?>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <?php get_sidebar(); ?>
+            </div>
+        </div> <!-- .row -->
+    </div> <!-- #page-content -->
 
 <?php
-get_sidebar();
 get_footer();
+?>

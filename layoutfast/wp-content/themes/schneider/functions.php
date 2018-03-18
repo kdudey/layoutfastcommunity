@@ -183,11 +183,4 @@ function footer_js() {
 add_action('wp_footer', 'footer_js');
 
 
-function add_active_nav_class($classes, $item) {
-    if (in_array('current-page-ancestor', $classes) || in_array('current-menu-item', $classes) ){
-        $classes[] = 'active ';
-    }
-    return $classes;
-}
-add_filter('nav_menu_css_class' , 'add_active_nav_class' , 10 , 2);
 

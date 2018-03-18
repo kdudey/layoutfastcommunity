@@ -9,30 +9,51 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package ebimc
+ * @package schneider
  */
 
-get_header(); ?>
+get_header(); 
 
-	<section id="primary" class="content-area col-sm-12 col-md-12 col-lg-8">
-		<main id="main" class="site-main" role="main">
+//Subheader hero on Default templates ?>
+    <a id="content-anchor"></a>
+    <div id="page-content" class="container">
+        <div class="row">
+        	<div class="col-md-8">
+               	<div class="secondary-menu">
+                    <?php
+                    wp_nav_menu(array(
+                    'theme_location'  => 'secondary',
+                    'menu'            => 'a',
+                    'menu_id'         => false,
+                    'menu_class'      => 'nav nav-pills',
+                    'depth'           => 3,
+                    'fallback_cb'     => 'wp_bootstrap_navwalker::fallback',
+                    'walker'          => new wp_bootstrap_navwalker()
+                    ));
+                    ?>
+                </div>
 
-			<?php
-			while ( have_posts() ) : the_post();
+                <div class="content">
+    				<?php
+    				while ( have_posts() ) : the_post();
 
-				get_template_part( 'template-parts/content', 'page' );
+    					get_template_part( 'template-parts/content', 'page' );
 
-                // If comments are open or we have at least one comment, load up the comment template.
-                if ( comments_open() || get_comments_number() ) :
-                    comments_template();
-                endif;
+    	                // If comments are open or we have at least one comment, load up the comment template.
+    	                if ( comments_open() || get_comments_number() ) :
+    	                    comments_template();
+    	                endif;
 
-			endwhile; // End of the loop.
-			?>
-
-		</main><!-- #main -->
-	</section><!-- #primary -->
+    				endwhile; // End of the loop.
+    				?>
+    			</div>
+    		</div>
+    		<div class="col-md-4">
+    			<?php get_sidebar(); ?>
+    		</div>
+    	</div> <!-- .row -->
+    </div> <!-- #page-content -->
 
 <?php
-get_sidebar();
 get_footer();
+?>
