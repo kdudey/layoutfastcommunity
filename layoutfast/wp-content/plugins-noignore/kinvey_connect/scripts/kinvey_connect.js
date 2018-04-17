@@ -61,7 +61,7 @@ function onLoadBackendLoginFailed()
 }
 
 function displayKinveyUserInfo(activeUser) {
-    var imgloc = $j('user_avatar_top');
+    var imgloc = $j('#user_avatar_top');
     if (!imgloc.length) { return; }
     if (activeUser.data.image !== null && activeUser.data.image !== undefined) {
         var promise = Kinvey.Files.stream(activeUser.data.image)
