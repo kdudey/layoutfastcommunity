@@ -28,7 +28,13 @@
                 <li><a href="#"><img src="/layoutfast/wp-content/themes/schneider/assets/images/nav-engineering.png" onMouseOver="this.src='/layoutfast/wp-content/themes/schneider/assets/images/nav-engineering-hover.png'" onMouseOut="this.src='/layoutfast/wp-content/themes/schneider/assets/images/nav-engineering.png'" alt="Engineering"></a></li>
                 <li><a href="#"><img src="/layoutfast/wp-content/themes/schneider/assets/images/nav-community.png" onMouseOver="this.src='/layoutfast/wp-content/themes/schneider/assets/images/nav-community-hover.png'" onMouseOut="this.src='/layoutfast/wp-content/themes/schneider/assets/images/nav-community.png'" alt="Community"></a></li>
                 <li><a href="#"><img src="/layoutfast/wp-content/themes/schneider/assets/images/nav-mylinks.png" onMouseOver="this.src='/layoutfast/wp-content/themes/schneider/assets/images/nav-mylinks-hover.png'" onMouseOut="this.src='/layoutfast/wp-content/themes/schneider/assets/images/nav-mylinks.png'" alt="My Links"></a></li>
-                <li><a href="#"><img src="/layoutfast/wp-content/themes/schneider/assets/images/nav-avatar.png" alt="User Profile" style="padding-left:8px;"> Register/Login</a></li>
+<?php
+if (is_user_logged_in()) {
+    ?>              <li><a href="<?php echo wp_logout_url(); ?>"><img src="/layoutfast/wp-content/themes/schneider/assets/images/nav-avatar.png" id="user_avatar_top" alt="User Profile" style="padding-left:8px;"> Logout</a></li><?php
+} else {
+    ?>              <li><a href="#"><img src="/layoutfast/wp-content/themes/schneider/assets/images/nav-avatar.png" alt="User Profile" style="padding-left:8px;"> Register/Login</a></li><?php
+}
+?>
                 <li><a href="#"><img src="/layoutfast/wp-content/themes/schneider/assets/images/icon-settings.png" alt="Settings"></a></li>
             </ul>
         </div>
